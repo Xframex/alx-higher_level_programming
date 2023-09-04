@@ -3,4 +3,5 @@
 # define a Rectangle class
 
 class Rectangle:
-    pass  # Placeholder for future code
+    # Placeholder for future code
+    pass
