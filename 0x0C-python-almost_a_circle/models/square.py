@@ -1,26 +1,16 @@
 #!/usr/bin/python3
-"""rectangle"""
+"""square module"""
 
 
 from models.rectangle import Rectangle
 
 
 class Square(Rectangle):
-    """inherited class from Rectanle no DRY (dont repeat your self) !!"""
+    """Square class inherited from Rectangle"""
 
     def __init__(self, size, x=0, y=0, id=None):
+        """Square constructor"""
         super().__init__(size, size, x, y, id)
-
-    """Getters / Setters from inherited class behaviour"""
-
-    @property
-    def size(self):
-        return self.width
-
-    @size.setter
-    def size(self, value):
-        self.width = value
-        self.height = value
 
     def update(self, *args, **kwargs):
         """Assigns an argument to each attribute"""
@@ -55,9 +45,27 @@ class Square(Rectangle):
 
     def to_dictionary(self):
         """Returns the dictionary representation of a Square"""
-        sqr_dic = {}
-        sqr_dic["id"] = self.id
-        sqr_dic["size"] = self.width
-        sqr_dic["x"] = self.x  # por que false r1==r2 task 13
-        sqr_dic["y"] = self.y
-        return sqr_dic
+        slf_dic = {}
+        slf_dic["id"] = self.id
+        slf_dic["size"] = self.width
+        slf_dic["x"] = self.x  # por que false r1==r2 task 13
+        slf_dic["y"] = self.y
+        return slf_dic
+
+    def __str__(self):
+        """String mathod"""
+        return "[Square] ({}) {}/{} - " "{}".format(
+                self.id, self.x, self.y, self.width)
+
+    # getters and setters
+
+    @property
+    def size(self):
+        """SIZE - getter"""
+        return self.width  # Por que no funciona con __width?
+
+    @size.setter
+    def size(self, new_size):
+        """SIZE - setter"""
+        self.width = new_size
+        self.height = new_size
