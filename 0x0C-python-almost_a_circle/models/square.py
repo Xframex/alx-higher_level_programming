@@ -4,6 +4,9 @@
 
 from models.rectangle import Rectangle
 
+import sys
+sys.path.append(r'/alx-higher_level_programming/0x0C-python-almost_a_circle')
+
 
 class Square(Rectangle):
     """Square class inherited from Rectangle"""

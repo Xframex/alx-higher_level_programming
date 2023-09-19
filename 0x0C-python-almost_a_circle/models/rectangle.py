@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 """rectangle"""
 
-
 from models.base import Base
+
+import sys
+sys.path.append(r'/alx-higher_level_programming/0x0C-python-almost_a_circle')
 
 
 class Rectangle(Base):
