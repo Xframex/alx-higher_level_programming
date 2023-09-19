@@ -1,9 +1,14 @@
 #!/usr/bin/python3
-""" module base (Parent class)"""
+"""(Parent class)"""
+
 
 import json
+
+
 class Base:
-    __nb_objects = 0  ### trackinig the number of objects
+    '''first comment'''
+
+    __nb_objects = 0
 
     def __init__(self, id=None):
         """initialize the class"""
@@ -13,19 +18,16 @@ class Base:
             Base.__nb_objects += 1
             self.id = Base.__nb_objects
 
-    def to_json_string(list_dictionaries):
-
-     """using JSON data representation"""
     @staticmethod
     def to_json_string(list_dictionaries):
-        """convert list_dictionaries to  lightweight data interchange format JSON """
+        """Convert list_dictionaries toa data interchange format JSON"""
         if list_dictionaries is None or len(list_dictionaries) == 0:
             list_dictionaries = []
         return json.dumps(list_dictionaries)
 
     @classmethod
     def save_to_file(cls, list_objs):
-        """write JSON of list_object to a file""" 
+        """Write JSON of list_object to a file"""
         json_file = cls.__name__ + ".json"
         with open(json_file, "w") as jsonfile:
             if list_objs is None:
@@ -33,8 +35,7 @@ class Base:
             else:
                 list_dicts = [o.to_dictionary() for o in list_objs]
                 jsonfile.write(Base.to_json_string(list_dicts))
-    
-    
+
     @staticmethod
     def from_json_string(json_string):
         if json_string is None or json_string == "[]":
@@ -43,7 +44,7 @@ class Base:
 
     @classmethod
     def create(cls, **dictionary):
-        '''returns an instance with all attributes already set'''
+        '''Returns an instance with all attributes already set'''
         if dictionary and dictionary != {}:
             if cls.__name__ == "Rectangle":
                 new = cls(1, 1)
@@ -54,7 +55,7 @@ class Base:
 
     @classmethod
     def load_from_file(cls):
-        """returns a list of instances from base"""
+        """Returns a list of instances from base"""
         ins_begin = cls.__name__ + ".json"
         ins_final = []
         try:
@@ -65,5 +66,4 @@ class Base:
                     ins_final.append(cls.create(**objects))
         except FileNotFoundError:
             pass
-        return (ins_final)          
-
+        return ins_final
