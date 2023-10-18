@@ -1,5 +1,7 @@
 #!/usr/bin/python3
 """ 0-main """
+import sys
+sys.path.append(r'/alx-higher_level_programming/0x0C-python-almost_a_circle')
 from models.base import Base
 
 if __name__ == "__main__":
