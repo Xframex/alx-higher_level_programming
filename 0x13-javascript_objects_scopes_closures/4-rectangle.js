@@ -1,6 +1,6 @@
 #!/usr/bin/node
 /*
-class Rectangle a rectangle
+class Rectangle that defines a rectangle
 */
 module.exports = class Rectangle {
   constructor (w, h) {
@@ -9,12 +9,23 @@ module.exports = class Rectangle {
       this.height = h;
     }
   }
-  // Prints the rectangle  X
+  // Prints the rectangle using the character X
 
   print () {
     let vtcal;
     for (vtcal = 0; vtcal < this.height; vtcal++) {
       console.log('X'.repeat(this.width));
     }
+  }
+
+  rotate () {
+    const tmp = this.width;
+    this.width = this.height;
+    this.height = tmp;
+  }
+
+  double () {
+    this.width = (this.width * 2);
+    this.height = (this.height * 2);
   }
 };
