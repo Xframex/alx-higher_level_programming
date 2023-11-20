@@ -1,6 +1,5 @@
 #!/usr/bin/python3
-"""[lists all states starting with N (upper N) from the database hbtn_0e_0_usa]
-"""
+"""lists all states starting with upper N from the database hbtn_0e_0_usa"""
 
 
 import MySQLdb
