@@ -1,13 +1,12 @@
 #!/usr/bin/node
+/*
+Writes content of a file.
+*/
 const fs = require('fs');
-
-const filePath = process.argv[2];
-const contentToWrite = process.argv[3];
-
-fs.writeFile(filePath, contentToWrite, 'utf-8', (err) => {
+// Rewriting the arv 
+const argv = process.argv.slice(2);
+fs.writeFile(argv[0], argv[1], 'utf8', function (err) {
   if (err) {
-    console.error(err);
-  } else {
-    console.log(`Content written to ${filePath}`);
+    return console.log(err);
   }
 });
